@@ -3,7 +3,7 @@
 #include<vector>
 #include<string>
 
-//This is Sequential search I created to search words in a dictionary of 5757 words.
+//This is a sequential search file I created to search words in a dictionary("sgb-words.txt") of 5757 words.
 
 using namespace std;
 
@@ -16,6 +16,7 @@ int main(){
     vector<string>myVector;
     string words, findWord;
     int wordLocation;
+    //Passing words into myVector.
     while(myFile >> words){
         myVector.push_back(words);
     }
@@ -27,6 +28,7 @@ int main(){
     while(findWord.size() != 5){
         cin >> findWord;
     }
+    //check words from the start to the end of myVector.
     for(int i = 0; i < myVector.size(); i++){
         if(myVector[i] == findWord){
             wordLocation = i;
