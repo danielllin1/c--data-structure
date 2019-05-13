@@ -34,10 +34,11 @@ int main(){
             wordLocation = i;
         }
     }
-    //Checking boundary.
+    //Checking the boundary.
     if(wordLocation == 0){
         cout << "The word you entered can not be found in the dictionary." << endl;
     }
+    //printing out the index of the word you entered.
     else{
     cout << "The index number of your word is: " << wordLocation << endl;
     }
@@ -51,10 +52,12 @@ int myTest(vector<string>testVector,int number,string key){
     while(i < number && testVector[i] != key){
          i++;
     }
+    //Checking the boundary.
     if(i == number && key != testVector[i]){
         cout << "The word you entered can not be found in the dictionary." << endl;
     }
     else{
+    //printing out the index of the word you entered.
         cout << "The index number of your word is: " << i << endl;
     }
     if(i < number){
