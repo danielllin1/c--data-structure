@@ -3,9 +3,11 @@
 #include<vector>
 #include<string>
 
-//This is a sequential search file I created to search words in a dictionary("sgb-words.txt") of 5757 words.
+//This is a sequential search file I created to search words in a dictionary("sgb-words.txt") of 5756 words.
 
 using namespace std;
+
+int myTest(vector<string>testVector,int number,string key);
 
 int main(){
     ifstream myFile;
@@ -22,19 +24,43 @@ int main(){
     }
     cout << "Enter the word you want to find in the word list" << endl;
     cin >> findWord;
-    if(findWord.size()!= 5){
-        cout << "Re-enter a five-letter word for searching." << endl;
-    }
     while(findWord.size() != 5){
+        cout << "Re-enter a five-letter word for searching." << endl;
         cin >> findWord;
     }
-    //check words from the start to the end of myVector.
+    //This is a simple loop to perform sequential search.
     for(int i = 0; i < myVector.size(); i++){
         if(myVector[i] == findWord){
             wordLocation = i;
         }
     }
+    //Checking boundary.
+    if(wordLocation == 0){
+        cout << "The word you entered can not be found in the dictionary." << endl;
+    }
+    else{
     cout << "The index number of your word is: " << wordLocation << endl;
-    cout << myVector.size() << endl;
-    return 0;
+    }
+    //-------------.
+    //myTest function is what I learned from Data structure class.
+    myTest(myVector,myVector.size(),findWord);
+        return 0;
+}
+int myTest(vector<string>testVector,int number,string key){
+    int i = 0;
+    while(i < number && testVector[i] != key){
+         i++;
+    }
+    if(i == number && key != testVector[i]){
+        cout << "The word you entered can not be found in the dictionary." << endl;
+    }
+    else{
+        cout << "The index number of your word is: " << i << endl;
+    }
+    if(i < number){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
